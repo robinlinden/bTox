@@ -5,7 +5,7 @@ on:
     branches: [master]
 
 env:
-  FLUTTER_VERSION: "2.10.3"
+  FLUTTER_VERSION: "3.0.0"
 
 jobs:
   format:
@@ -67,7 +67,7 @@ jobs:
         cache: true
     - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ninja-build libgtk-3-dev
     - run: ./tools/prepare
-    - run: flutter config --enable-linux-desktop && flutter build linux
+    - run: flutter build linux
 
   ios-build:
     runs-on: macos-11
@@ -91,7 +91,7 @@ jobs:
         flutter-version: ${{ env.FLUTTER_VERSION }}
         cache: true
     - run: ./tools/prepare
-    - run: flutter config --enable-macos-desktop && flutter build macos
+    - run: flutter build macos
 
   web-build:
     runs-on: windows-2022
